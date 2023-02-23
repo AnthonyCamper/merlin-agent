@@ -418,9 +418,12 @@ func (t *Transport) tlsConnect(conn net.Conn, req *http.Request) (*tls.UConn, er
 }
 
 // getTLSConfig returns a TLS configuration that allows untrusted server certificates and sets the ServerName field
+
+// Editing this, I forget why?
 func (t *Transport) getTLSConfig(req *http.Request) *tls.Config {
 	return &tls.Config{
-		ServerName:         req.URL.Host,
+		// ServerName:         req.URL.Host,
+		ServerName:         "scoring.blue",
 		InsecureSkipVerify: true,
 	}
 }
